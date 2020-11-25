@@ -152,7 +152,6 @@ def main(args):
             cls_boxes, cls_segms, cls_keyps = infer_engine.im_detect_all(
                 model, im, None, timers=timers
             )
-            print(cls_boxes)
         logger.info('Inference time: {:.3f}s'.format(time.time() - t))
         for k, v in timers.items():
             logger.info(' | {}: {:.3f}s'.format(k, v.average_time))
