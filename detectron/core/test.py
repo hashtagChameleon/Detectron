@@ -65,9 +65,6 @@ def im_detect_all(model, im, box_proposals, timers=None):
         scores, boxes, im_scale = im_detect_bbox(
             model, im, cfg.TEST.SCALE, cfg.TEST.MAX_SIZE, boxes=box_proposals
         )
-    print(f'raven: scores {scores}')                                                                                                                                                                               
-    print(f'raven: boxes {boxes}')                                                                                                                                                                                 
-    print(f'raven: im_scale {im_scale}')
     timers['im_detect_bbox'].toc()
 
     # score and boxes are from the whole image after score thresholding and nms
@@ -76,9 +73,6 @@ def im_detect_all(model, im, box_proposals, timers=None):
     # for evaluating results
     timers['misc_bbox'].tic()
     scores, boxes, cls_boxes = box_results_with_nms_and_limit(scores, boxes)
-    print(f'raven2: scores {scores}')                                                                                                                                                                               
-    print(f'raven2: boxes {boxes}')                                                                                                                                                                                 
-    print(f'raven2: cls_boxes {cls_boxes}')
     timers['misc_bbox'].toc()
 
     if cfg.MODEL.MASK_ON and boxes.shape[0] > 0:
