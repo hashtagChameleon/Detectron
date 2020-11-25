@@ -304,7 +304,7 @@ def vis_one_image(
                           bbox[3] - bbox[1],
                           fill=False, edgecolor='g',
                           linewidth=0.5, alpha=box_alpha))
-        print(f'{get_class_string(classes[i], score, dataset)}: (score: {score}) {bbox}')
+        print(f'{classes[i]}: (score: {score}) {bbox}')
         if show_class:
             ax.text(
                 bbox[0], bbox[1] - 2,
