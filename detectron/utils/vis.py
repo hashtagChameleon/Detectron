@@ -305,7 +305,11 @@ def vis_one_image(
                           fill=False, edgecolor='g',
                           linewidth=0.5, alpha=box_alpha))
         if classes[i] == 1:
-            print(f'raven: {bbox} score {round(score, 2)}')
+            xmin = bbox[0]
+            ymin = bbox[1]
+            width = bbox[2] - xmin
+            height = bbox[3] - ymin
+            print(f'raven: [{xmin} {ymin} {width} {height}] score {round(score, 2)}')
         if show_class:
             ax.text(
                 bbox[0], bbox[1] - 2,
